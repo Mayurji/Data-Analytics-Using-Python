@@ -71,4 +71,14 @@
     
     all the records with sex as 'girl' is filtered
     
+    year2007 = popularGirlName.loc[popularGirlName['year'] == 2007][:5]
+    print(year2007)
+    
+            year      name   percent   sex
+    256000  2007     Emily  0.009155  girl
+    256001  2007  Isabella  0.009049  girl
+    256002  2007      Emma  0.008688  girl
+    ...     ..          ..  ...         ..
+    
+    
     
