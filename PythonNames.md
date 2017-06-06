@@ -52,7 +52,23 @@
     1883  boy     1000
           girl    1000
           ...     ...
-
-
-
-
+          
+          
+    popularNames = pd.DataFrame(babyNames.sort_index(by = 'percent', ascending = False))
+    popularNames.filter(items=['name','sex','percent'])
+    
+        name    sex     percent
+    0   john    boy     0.81..
+    1   william boy     0.80..
+    .   ..      ..      ...
+    
+    popularBoyName = popularNames.loc[popularNames['sex'] == 'boy']
+  
+    all the records with sex as 'boy' is filtered 
+    
+    
+    popularGirlName = popularNames.loc[popularNames['sex'] == 'girl']
+    
+    all the records with sex as 'girl' is filtered
+    
+    
