@@ -121,3 +121,23 @@
              1906    0.000185
              1907    0.000213
                 .......
+
+
+    ParticularName = popularNames.loc[popularNames['name'] == 'George']
+    
+
+            year    name    percent sex
+    4       1880    George  0.043292 boy 
+
+    1003    1881 George 0.043068 boy 
+
+    2003    1882 George 0.042553 boy 
+
+    3004    1883 George 0.042102 boy 
+
+    4003    1884 George 0.040417 boy 
+    ...     ... ....................
+    
+    
+    
+    
