@@ -1,6 +1,8 @@
 
    import pandas as pd
+   
    babyNames = pd.read_csv('D:\names.csv')
+   
    print(babyNames.head())
     
            year     name   percent  sex
@@ -55,6 +57,7 @@
 
           
   popularNames = pd.DataFrame(babyNames.sort_index(by = 'percent', ascending = False))
+  
   popularNames.filter(items=['name','sex','percent'])
     
             name    sex     percent
@@ -63,13 +66,16 @@
         .   ..      ..      ...
     
   popularBoyName = popularNames.loc[popularNames['sex'] == 'boy']
+  
   all the records with sex as 'boy' is filtered 
     
     
   popularGirlName = popularNames.loc[popularNames['sex'] == 'girl']
+  
   all the records with sex as 'girl' is filtered
     
   year2007 = popularGirlName.loc[popularGirlName['year'] == 2007][:5]
+  
   print(year2007)
     
                 year      name   percent   sex
