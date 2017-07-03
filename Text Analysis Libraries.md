@@ -1,7 +1,8 @@
 
-#Text Analysis Libraries References :
+# Text Analysis Libraries References :
 
-    NLTK. Provides a nice introduction into programming with Python and an introduction into Natural Language Processing.
+    
+    NLTK. Provides a nice introduction into programming with Python and an introduction into Natural Language Processing.
     
     PyNLPl. Library for Natural Language Processing, written by Maarten van Gompel. Contains a lot of modules for dealing with text, specific formats encountered in the field, and interfacing with other external NLP software. All of the things we did in chapter three are readily available in PyNLPl.
     
