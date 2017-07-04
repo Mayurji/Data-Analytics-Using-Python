@@ -17,4 +17,9 @@
 
       text1.dispersion_plot(['range','average','freedom'])
       
+5. generate: it generates few random lines from text1
+
+      text1.generate()
+      
+      
       
