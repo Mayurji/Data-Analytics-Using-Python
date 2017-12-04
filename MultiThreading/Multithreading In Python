@@ -1,0 +1,31 @@
+import csv
+from multiprocessing import Pool
+import time
+import os
+import pandas as pd
+
+def process_file(data_file):
+    with open(data_file) as f:
+        for line in f:
+            print("Start processing {0}".format(data_file))
+            print("Finished processing file {0} with {1} errors".format(data_file, error_count))
+
+def process_file_callable(data_file):
+    try:
+        process_file(data_file)
+    except:
+        print(sys.stderr, "Error processing file {0}".format(data_file))
+
+def partition_file(l, n):
+    for i in range(0, len(l), n):
+        yield l[i:i+n]
+
+pool = Pool(10)
+csv_file = pd.read_csv('C:/Users/MI5022414/Desktop/MSD/911.csv',header=None,sep=',')
+for partition in partition_file(csv_file, 10):
+    res = pool.map(process_file_callable, partition)
+    print(res)
+    pool.close()
+    pool.join()
+    
+https://stackoverflow.com/questions/29291270/threading-in-python-processing-multiple-large-files-concurrently
