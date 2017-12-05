@@ -29,3 +29,53 @@ for partition in partition_file(csv_file, 10):
     pool.join()
     
 https://stackoverflow.com/questions/29291270/threading-in-python-processing-multiple-large-files-concurrently
+
+
+##### 5/12/2017 ################
+
+import threading
+import linecache
+import sqlite3
+import pandas as pd
+
+
+def task1(num):
+    i = 0
+    try:
+        while i < num: 
+            line = linecache.getline('C:/Users/MI5022414/Desktop/MSD/911.csv',i)
+            col_val = line.split(',')
+            cur.execute("insert into table_one values (?,?,?)", (col_val[0])#, col_val[1],col_val[2]))
+            i = i + 1
+            sqldb.commit()
+    except IndexError:
+        print(IndexError.args)
+
+def task2(num1, num2):
+    while num1 < num2: 
+        line = linecache.getline('C:/Users/MI5022414/Desktop/MSD/911.csv',num1)
+        col_val = line.split(',')
+        cur.execute("insert into table_one values (?,?,?)", (col_val[0], col_val[1],col_val[2]))
+        num1 = num1 + 1
+        sqldb.commit()
+    
+if __name__ == "__main__":
+    # creating thread
+    t1 = threading.Thread(target=task1, args=(50,))
+    #t2 = threading.Thread(target=task2, args=(50,100,))
+    database = 'C:/Users/MI5022414/Desktop/MSD/911_db.db'
+    sqldb = sqlite3.connect('C:/Users/MI5022414/Desktop/MSD/911_db.db',check_same_thread=False)
+    cur = sqldb.cursor()
+    cur.execute('''CREATE TABLE IF NOT EXISTS table_one (id integer NOT NULL,name integer NOT NULL,name_1 integer NOT NULL);''')
+    
+    t1.start()
+    #t2.start()
+    
+    t1.join()
+    #t2.join()
+    
+    pd.read_sql_query("select * from table_one;", sqldb)
+    
+    print("Done!")
+    
+    
