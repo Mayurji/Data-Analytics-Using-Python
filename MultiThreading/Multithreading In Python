@@ -78,4 +78,11 @@ if __name__ == "__main__":
     
     print("Done!")
     
+########### 6/12/2017 ##################################################
+
+https://gist.github.com/garaud/bda10fa55df5723e27da
+https://pymotw.com/2/threading/
+http://www.devx.com/dbzone/optimize-inserts-using-sqlalchemy.html
+https://pandas.pydata.org/pandas-docs/version/0.21/generated/pandas.read_sql_query.html
+https://stackoverflow.com/questions/29525808/sqlalchemy-orm-conversion-to-pandas-dataframe
     
